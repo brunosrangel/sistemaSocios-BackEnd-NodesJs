@@ -16,38 +16,95 @@ const usuarioSchema = new mongoose.Schema({
     valorMensalidade: { type: mongoose.Schema.Types.ObjectId, ref: 'ValorMensalidadeModel' }
 });
 
-const enderecoSchema = new mongoose.Schema({
-    endereco: String,
-    cidade: String,
-    estado: String,
-    tipoEndereco: String,
-    cep: String
+// Getters e setters para idUsuario
+usuarioSchema.path('idUsuario').get(function(value) {
+    return this.idUsuario;
+}).set(function(value) {
+    this.idUsuario = value;
 });
 
-const escolaridadeSchema = new mongoose.Schema({
-    descricao: String,
-    status: Boolean
+// Getters e setters para nomeUsuario
+usuarioSchema.path('nomeUsuario').get(function(value) {
+    return this.nomeUsuario;
+}).set(function(value) {
+    this.nomeUsuario = value;
 });
 
-const jurosMensalidadeSchema = new mongoose.Schema({});
-
-const redeSocialSchema = new mongoose.Schema({
-    descricao: String,
-    url: String,
-    isActive: Boolean
+// Getters e setters para email
+usuarioSchema.path('email').get(function(value) {
+    return this.email;
+}).set(function(value) {
+    this.email = value;
 });
 
-const telefoneSchema = new mongoose.Schema({
-    ddd: String,
-    numero: String,
-    tipoTelefone: String
+// Getters e setters para endereco
+usuarioSchema.path('endereco').get(function(value) {
+    return this.endereco;
+}).set(function(value) {
+    this.endereco = value;
 });
 
-const valorMensalidadeSchema = new mongoose.Schema({
-    valor: Number
+// Getters e setters para telefone
+usuarioSchema.path('telefone').get(function(value) {
+    return this.telefone;
+}).set(function(value) {
+    this.telefone = value;
 });
 
+// Getters e setters para profissao
+usuarioSchema.path('profissao').get(function(value) {
+    return this.profissao;
+}).set(function(value) {
+    this.profissao = value;
+});
 
-const UsuarioModel = mongoose.model('UsuarioModel', usuarioSchema);
+// Getters e setters para escolaridade
+usuarioSchema.path('escolaridade').get(function(value) {
+    return this.escolaridade;
+}).set(function(value) {
+    this.escolaridade = value;
+});
 
-module.exports = UsuarioModel;
+// Getters e setters para redeSocial
+usuarioSchema.path('redeSocial').get(function(value) {
+    return this.redeSocial;
+}).set(function(value) {
+    this.redeSocial = value;
+});
+
+// Getters e setters para dataEntrada
+usuarioSchema.path('dataEntrada').get(function(value) {
+    return this.dataEntrada;
+}).set(function(value) {
+    this.dataEntrada = value;
+});
+
+// Getters e setters para dataIniciacao
+usuarioSchema.path('dataIniciacao').get(function(value) {
+    return this.dataIniciacao;
+}).set(function(value) {
+    this.dataIniciacao = value;
+});
+
+// Getters e setters para dataUltimaObrigacao
+usuarioSchema.path('dataUltimaObrigacao').get(function(value) {
+    return this.dataUltimaObrigacao;
+}).set(function(value) {
+    this.dataUltimaObrigacao = value;
+});
+
+// Getters e setters para aplicaJurosMensalidade
+usuarioSchema.path('aplicaJurosMensalidade').get(function(value) {
+    return this.aplicaJurosMensalidade;
+}).set(function(value) {
+    this.aplicaJurosMensalidade = value;
+});
+
+// Getters e setters para valorMensalidade
+usuarioSchema.path('valorMensalidade').get(function(value) {
+    return this.valorMensalidade;
+}).set(function(value) {
+    this.valorMensalidade = value;
+});
+
+module.exports = mongoose.model('Usuario', usuarioSchema);
